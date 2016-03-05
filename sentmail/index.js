@@ -15,7 +15,7 @@ module.exports = function(){
 			return true
 		}else{
 			contactRef.child(key).update({
-				sent1:true
+				sent:true
 			})
 			
 			//send email
