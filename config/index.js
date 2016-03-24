@@ -40,7 +40,7 @@ var all = {
   },
   
   //contact email
-  mailTo: 'joelsfoster@gmail.com'
+  mailTo: 'tolya199178@gmail.com'
 
 };
 

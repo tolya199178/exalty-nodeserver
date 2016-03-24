@@ -40,7 +40,7 @@ module.exports = function(){
 	}, null, function(user) {
 		var customerData = {};
 		customerData.email = user.email; 
-		customerData.description = 'Customer for' + user.email; 
+		customerData.description = 'Customer for ' + user.email; 
 		return customerData;
 	});
 	

@@ -23,7 +23,7 @@ module.exports = function(){
 			
 			// setup e-mail data with unicode symbols 
 			var mailOptions = {
-				from: data.email, // sender address 
+				from: '"' + data.firstName  + ' ' + data.lastName + '" <' + data.email + '>', // sender address 
 				to: config.mailTo, // list of receivers 
 				subject: data.title, // Subject line 
 				text: data.content, // plaintext body 				
