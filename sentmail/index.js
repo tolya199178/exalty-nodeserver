@@ -65,7 +65,7 @@ module.exports = function(){
 	})
 
 	/*-----------Notification SMS  TEXT---------------*/
-	var textRef = config.fireBaseUrl + 'notificationEmails/';
+	var textRef = config.fireBaseUrl + 'notificationTexts/';
 	textRef = new Firebase(textRef);
 	textRef.on('child_added', function(row){				
 		var data = row.val();
