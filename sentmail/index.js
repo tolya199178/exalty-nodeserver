@@ -43,9 +43,10 @@ module.exports = function(){
 	/*-----------Notification  Email---------------*/
 	var emailRef = config.fireBaseUrl + 'notificationEmails/';
 	emailRef = new Firebase(emailRef);
-	emailRef.on('child_added', function(row){		
+	emailRef.on('child_added', function(row){				
 		var data = row.val();
 		var key = row.key();
+		console.log(data);
 		var transporter = nodemailer.createTransport(config.smtpConfig);
 		// setup e-mail data with unicode symbols 
 		var mailOptions = {
