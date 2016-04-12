@@ -41,7 +41,7 @@ module.exports = function(){
 	})
 
 	/*-----------Notification  Email---------------*/
-	var emailRef = config.fireBaseUrl + 'contactUs/';
+	var emailRef = config.fireBaseUrl + 'notificationEmails/';
 	emailRef = new Firebase(emailRef);
 	emailRef.on('child_added', function(row){		
 		var data = row.val();
