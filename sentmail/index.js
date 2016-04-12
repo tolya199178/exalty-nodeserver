@@ -46,7 +46,6 @@ module.exports = function(){
 	emailRef.on('child_added', function(row){				
 		var data = row.val();
 		var key = row.key();
-		console.log(data);
 		var transporter = nodemailer.createTransport(config.smtpConfig);
 		// setup e-mail data with unicode symbols 
 		var mailOptions = {
@@ -62,6 +61,29 @@ module.exports = function(){
 			}
 			console.log('Message sent: ' + info.response);
 			emailRef.child(key).remove();
+		});		
+	})
+
+	/*-----------Notification SMS  TEXT---------------*/
+	var textRef = config.fireBaseUrl + 'notificationEmails/';
+	textRef = new Firebase(textRef);
+	textRef.on('child_added', function(row){				
+		var data = row.val();
+		var key = row.key();
+		var transporter = nodemailer.createTransport(config.smtpConfig);
+		// setup e-mail data with unicode symbols 
+		var mailOptions = {
+			from: config.notificaitonFormEmail, // sender address 
+			to: data.toEmail, // list of receivers 			
+			text: data.content, // plaintext body 				
+		};
+		// send mail with defined transport object 
+		transporter.sendMail(mailOptions, function(error, info){
+			if(error){
+				return console.log(error);
+			}
+			console.log('Message sent: ' + info.response);
+			textRef.child(key).remove();
 		});		
 	})
 }
