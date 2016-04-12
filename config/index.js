@@ -22,7 +22,7 @@ var all = {
   
   //Stripe Key
   stripeKey: 'sk_test_4dEBc9A6SWTvwn988UMZM3Bd',
-  stripePlanId: '023232458',
+  stripePlanId: '1',
   
   //Firebase URL
   fireBaseUrl: 'https://exaltly.firebaseio.com/',  
