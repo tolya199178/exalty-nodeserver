@@ -5,7 +5,7 @@ var nodemailer = require('nodemailer');
 
 
 module.exports = function(){
-	var stripeFire = require("stripe-fire")(config.stripeKey);
+	/*-----------Contact Us Email---------------*/
 	var contactRef = config.fireBaseUrl + 'contactUs/';
 	contactRef = new Firebase(contactRef);
 	contactRef.on('child_added', function(row){		
@@ -38,5 +38,29 @@ module.exports = function(){
 			});
 			
 		}
-	})	
+	})
+
+	/*-----------Notification  Email---------------*/
+	var emailRef = config.fireBaseUrl + 'contactUs/';
+	emailRef = new Firebase(emailRef);
+	emailRef.on('child_added', function(row){		
+		var data = row.val();
+		var key = row.key();
+		var transporter = nodemailer.createTransport(config.smtpConfig);
+		// setup e-mail data with unicode symbols 
+		var mailOptions = {
+			from: config.notificaitonFormEmail, // sender address 
+			to: data.toEmail, // list of receivers 
+			subject: data.title, // Subject line 
+			html: data.content, // plaintext body 				
+		};
+		// send mail with defined transport object 
+		transporter.sendMail(mailOptions, function(error, info){
+			if(error){
+				return console.log(error);
+			}
+			console.log('Message sent: ' + info.response);
+			emailRef.child(key).remove();
+		});		
+	})
 }

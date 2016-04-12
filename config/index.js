@@ -40,8 +40,9 @@ var all = {
   },
   
   //contact email
-  mailTo: 'joelsfoster@gmail.com'
-
+  mailTo: 'joelsfoster@gmail.com',
+  //notifciatonFormEmail
+  notificaitonFormEmail: 'donotreply@exalt.ly',
 };
 
 // Export the config object based on the NODE_ENV
