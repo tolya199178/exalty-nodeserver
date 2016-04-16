@@ -21,7 +21,10 @@ var all = {
   port: process.env.PORT || 9001,
   
   //Stripe Key
-  stripeKey: 'sk_test_4dEBc9A6SWTvwn988UMZM3Bd',
+  //stripeKey: 'sk_test_4dEBc9A6SWTvwn988UMZM3Bd',
+  //stripePlanId: '1',
+
+  stripeKey: 'sk_live_WG0AxMzXCyiyoPkZXZgkDDz7',
   stripePlanId: '1',
   
   //Firebase URL
