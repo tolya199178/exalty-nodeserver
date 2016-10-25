@@ -33,12 +33,12 @@ var all = {
   
   //Smtp Config
   smtpConfig : {
-    host: 'smtp.udag.de',
+    host: '',
     port: 25,
     secure: false, // use SSL 
     auth: {
-        user: 'unser-menu-0001',
-        pass: '5134134134AbA'
+        user: '',
+        pass: ''
     }
   },
   
